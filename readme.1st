@@ -1,0 +1,147 @@
+This is the FOSBIC1 compiler developed at the University of Gießen, Germany
+in the late 70s for the CDC 3300 batch system.
+
+It is a BASIC compiler and runtime system which is written in FORTRAN IV.
+
+The text book from which the source code was copied implies that it is
+a modified version of a BASIC compiler named UWBIC from the
+University of Washington, developed by William Sharp in 1967, for their
+IBM 7094.
+
+FOSBIC1 was extended with MAT functions (vector and matrix math) as well
+as with a proprietary FILE subsystem which allows to play with simple
+sequential an index sequential files.
+
+It was possible to port this code to modern GNU gfortran with few changes,
+so this allows to play a bit with a retro system. For serious work it is
+surely no longer useful, however modern BASIC does no longer have the
+MAT statement which was popular for some of these old implementations.
+
+FOSBIC translates a BASIC program provided as a batch job on punched cards
+into an intermediate code and, in case of no errors, submits this code
+to an interpreter which then produces output.
+
+On copyrights
+-------------
+
+The original code does not contain any classical copyright notice.
+It is published work as a textbook for university classes.
+
+
+The book itself is copyrighted 1977 by the publisher Paul Haupt Verlag
+in a university series UTB (Universitäts-Taschen-Bücher) which is
+no longer in print.
+Wikipedia says about this: The original owner Paul Haupt died in 1978;
+the Verlag in Bern (Switzerland) is nowadays named Haupt Verlag AG.
+While there is still the series UTB of science books, the catalog no longer
+lists the referred book.
+
+The compiler output identifies itself as
+
+                       TESTCOMPILER -- BASIC BWL 5 GIESSEN -- VERSION 6/76-04
+
+        INFORMATIONEN DURCH:
+
+        PROF.DR.OEC.PUBL.K.WEBER,M.S.
+        DIPL.-ING.,DIPL.-OEC.C.W.TUERSCHMANN
+        PROFESSUR FUER BETRIEBSWIRTSCHAFTSLEHRE V
+        LICHER STRASSE 74
+        D-6300 GIESSEN
+        FEDERAL REPUBLIC OF GERMANY
+
+        ******************************** PROGRAMMKENNUNG *******************************
+        *
+        ********************************************************************************
+
+        BASIC TEXTBOOK = WEBER, TUERSCHMANN, BASIC LEHR- UND HANDBUCH. BERN 1977. BAND 1 = A
+        ****************                                                          BAND 2 = B
+                         WEBER, TUERSCHMANN. FOSBIC. BERN 1977.                          = C
+
+                        TESTCOMPILER -- BASIC BWL 5 GIESSEN -- VERSION 6/76-04
+
+
+The referred department at the still existing Vniversity of Gießen appears to be no longer
+existing; also the mentioned professor (Weber) and his assistent (Türschmann) appear to be
+retired for long time, or even no longer alive. It was not possible for me, with the exception
+of a newspaper article on the FOSBIC system from the University web site
+(https://www.uni-giessen.de/de/fbz/svc/hrz/org/historie/Dokumente/FOSBIC.pdf), to find any
+further reference or contact to the authors and the system itself.
+
+Thus, in order to preserve the past (and possibly also the lost UWBIC compiler which appears
+to have been rather similar to this), I decided to publish this work and make it
+available for interested groups, mainly scientists,  in the same sense of the formerly
+published textbook which opened the source of this work in 1977.
+
+
+Directory structure
+-------------------
+
+top
+ +--- *.for                        the sources
+ |    *.c
+ |    makefile
+ |
+ +--- examples
+ |     +--- *.bas                  various example files
+ |          references.txt         reference to original documentation
+ |
+ +--- original
+       +--- *.for                  unmodified sources as in the PDF
+            FOSBIC-Compiler.pdf    Scan of the source book
+
+
+Running the system
+------------------
+
+As a batch system, not interactive as in modern BASIC interpreters, one
+passes a written BASIC file through the standard input stream to the
+compiler, and get a dump of the result on the standard output stream,
+intended to be printed on a line printer.
+
+Thus, it is to be used from a cmd windows as
+
+	C:\FOSBIC> .\fosbic < example\hello.bas
+
+or from a linux bash shell as
+
+	$ ./fosbic < example/hello.bas
+
+As a native FORTRAN program, FOSBIC will emit the typical printer control
+commands in the first column, namely blank, zero and plus.
+They will be processed by the provided ASA utility by piping the FOSBIC output to
+as in
+
+	C:\FOSBIC> .\fosbic < example\hello.bas | .\asa
+or
+	$ ./fosbic < example/hello.bas | ./asa
+
+Attention: this is real batch processing, i.e. there is an INPUT statement,
+but you cannot interactively provide input from the keyboard,
+but rather the data to be entered has to be provided as 'punched cards' after
+the program, e.g. as in
+
+*
+10 PRINT 'ENTER DATA'
+20 INPUT A
+30 PRINT 'YOU ENTERED',A
+40 END
+
+12345
+*
+
+The 12345 is the data which is read by INPUT. For experiments, you better use
+READ and DATA statements.
+
+
+
+
+Compiling
+---------
+
+Building is rather straight forward from Linux - you just need GNU gfortran, a C compiler for asa.c
+and the make utility.
+Running make in the top level directory with the *.for files will produce two executables
+fosbic and asa.
+
+Under Windows, you need a mingw or cygwin environment with gfortran, gcc, and make as well.
+Likewise run make, and get a fosbic.exe and asa.exe file.

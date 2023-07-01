@@ -1,0 +1,9 @@
+*   Note the result is more accurate than the system from the book
+ 10 PRINT '123456789012345678901234567890123456789012345678901234567890'
+ 20 %  I-FORMAT = ####   F-FORMAT = ###.##
+ 30 %  E-FORMAT = #.####^^^^
+ 40 READ A,B,C
+ 50 PRINT USING 20, A, B;
+ 60 PRINT USING 30, C
+ 70 DATA -123, 12.34, -1234.567
+ 80 END

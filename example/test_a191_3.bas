@@ -1,0 +1,7 @@
+10 LET A$ = 'ALPHA'
+20 LET B$ = 'BETA'
+30 LET C$ = 'GAMMA'
+40 PRINT USING 50, 1234, A$, B$, C$
+50 % #####
+60 PRINT USING 50, 1234; A$; B$; C$
+70 END

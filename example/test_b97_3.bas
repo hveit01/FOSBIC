@@ -1,0 +1,6 @@
+10 DIM D(5,5), G(3,3)
+20 MAT D = (1)
+30 MAT G = IDN
+40 MAT H = IDN(5,5)
+50 MAT PRINT D, G, H
+60 END

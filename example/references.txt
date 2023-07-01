@@ -1,0 +1,42 @@
+The tests refer to the textbooks issued by the authors,
+however I have only the 2nd edition. 
+These describe an improved version FOSBIC2 which I don't have source of,
+so several example code does not work.
+
+The test*.bas files in the examples directory are working.
+
+Between the FOSBIC1 version described here, and FOSBIC2, significant
+changes in FILE handling were made, so the file*.bas examples were
+created from scratch.
+
+Book A:
+	Weber, Karl:
+	BASIC: Lehr- u. Handbuch d. Programmiersprache
+	BASIC mit wirtschaftwissenschaftl. Anwendungs-
+	beispielen / Karl Weber; Carl Wolfram Türsch-
+	mann. - Bern; Stuttgart: Haupt
+	
+	NE: Türschmann, Carl Wolfram:
+	
+	1.-2., überarb. u. erw. Auflage - 1981. -
+	   (Uni-Taschenbücher; 588)
+	   ISBN: 3-258-03046-4
+	   
+Book B:
+	Weber, Karl:
+	BASIC: Lehr- u. Handbuch d. Programmiersprache
+	BASIC mit wirtschaftwissenschaftl. Anwendungsbeispielen / Karl Weber; Carl Wolfram
+	Türschmann. - Bern; Stuttgart: Haupt
+	
+	NE: Türschmann, Carl Wolfram:
+	
+	2.-2., überarb. u. erw. Auflage - 1982. (Uni-Taschenbücher; 589)
+	   ISBN: 3-258-03175-4
+	   
+
+Book C:
+	Weber, Karl / Türschmann, Carl Wolfram
+	FOSBIC-Compiler
+	Ein BASIC-Compilersystem auf FORTRAN-Basis
+	Verlag Paul Haupt Bern und Stuttgart
+	ISBN 3-258-02580-0

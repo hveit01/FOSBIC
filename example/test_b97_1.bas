@@ -1,0 +1,4 @@
+10 DIM A(3,4)
+20 MAT A = (0)
+30 MAT PRINT A
+40 END

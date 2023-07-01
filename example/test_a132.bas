@@ -1,0 +1,2 @@
+10 A=0        ! NULL STATEMENT
+20 END

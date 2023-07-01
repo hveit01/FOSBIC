@@ -1,0 +1,7 @@
+10 PRINT 'END-TEST'
+20 READ A, B, C, D$, E$, F$
+30 PRINT A, B, C, D$, E$, F$
+40 END LIST DATA
+1,2,3, 
+'DATA','ENDE','BASIC'
+*

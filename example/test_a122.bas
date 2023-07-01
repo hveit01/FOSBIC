@@ -1,0 +1,7 @@
+1    READ A, B
+2    DATA 1, 1, 1, 2, 1, 3, 9999, 9999
+3    IF A GE 9999 GOTO 9999
+4    LET C = A + B
+5    PRINT C
+6    GOTO 1
+9999 END
